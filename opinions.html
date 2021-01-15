@@ -6,7 +6,11 @@
 
         <!-- Link stylesheet -->
         <link rel="stylesheet" type="text/css" href="styles.css">
-
+         
+        <!-- Link stylesheet for d3 data visualization -->
+        <link rel="stylesheet" type="text/css" href="multiline.css">
+        <script src="https://d3js.org/d3.v3.js" charset="utf-8"></script>
+    
     </head>
     <body>
         <a href='index.html'>Thucydides’s Trap  </a>
@@ -15,7 +19,27 @@
         <a href='opinions.html'>Opinion Comparison  </a>
         <a href='our_team.html'>Our Team  </a>
         <h1>U.S. and China Opinions of Each Other</h1>
-        <img src="https://www.pewresearch.org/global/wp-content/uploads/sites/2/2020/10/PG_2020.10.06_Global-Views-China_0-05.png?w=640"/>
+        <div class="chart-wrapper" id="chart-line1"></div>
+        
+        <!-- d3 code for opinions' chart -->
+        <script type="text/javascript">
+            d3.csv('opinions_data.csv', function(error, data) {
+            data.forEach(function (d) {
+                d.Year = +d.Year;
+                d.USA_Opinion_of_China = +d.USA_Opinion_of_China;
+                d.China_Opinion_of_USA = +d.China_Opinion_of_USA;
+            });
+
+            var chart = makeLineChart(data, 'Year', {
+                "USA's Opinion of China": {column: 'USA_Opinion_of_China'},
+                "China's Opinion of USA": {column: 'China_Opinion_of_USA'}
+                
+            }, {xAxis: 'Years', yAxis: 'Rating'});
+            chart.bind("#chart-line1");
+            chart.render();
+
+        });
+        </script>
         
         <h2>U.S. and China opinions of each other have continued to detriorate. Opinions on both sides are at an all time low. Several reasons for this include:</h2>
     
@@ -25,7 +49,8 @@
 		<li>The accusative rhetoric from both sides</li>
 		<li>TBD ...</li>
 	   </ul>
-
-        <a href='our-team/index.html'>Learn more about our team</a>
+        
+        <!-- linking d3 javascript code for opinions chart -->
+        <script src="multiline.js" charset="utf-8"></script>
     </body>
 </html>
