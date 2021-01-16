@@ -12,6 +12,11 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap/bootstrap-3.4.1-dist/css/bootstrap.min.css">
 
+        <!-- Link stylesheet for d3 data visualization -->
+        <link rel="stylesheet" type="text/css" href="styles/multiline.css">
+
+        <script src="https://d3js.org/d3.v3.js" charset="utf-8"></script>
+    
     </head>
 
     <body>
@@ -38,30 +43,61 @@
         </div>
         <!-- /#wrapper -->
 
-        <!--page header -->
-        <h1>U.S. and China Opinions of Each Other</h1>
+        <h1>Opinion Comparison</h1>
+
+        <h2>America's Opinion of China is at its Lowest Point</h2>
+
+        <h4>The current #1 power's opinion of the rising power has fallen fast.</h4>
+
+        <div class="chart-wrapper" id="chart-line1"></div>
         
-        <!--opinions chart -->
-        <img src="https://www.pewresearch.org/global/wp-content/uploads/sites/2/2020/10/PG_2020.10.06_Global-Views-China_0-05.png?w=640"/>
-        
-        <!--page subheader -->
-        <h2>U.S. and China opinions of each other have continued to detriorate. Opinions on both sides are at an all time low. Several reasons for this include:</h2>
+        <!-- d3 code for opinions' chart -->
+        <script type="text/javascript">
+            d3.csv('data/opinions_data.csv', function(error, data) {
+            data.forEach(function (d) {
+                d.Year = +d.Year;
+                d.USA_Opinion_of_China = +d.USA_Opinion_of_China;
+                d.China_Opinion_of_USA = +d.China_Opinion_of_USA;
+            });
+
+            var chart = makeLineChart(data, 'Year', {
+                "USA's Opinion of China": {column: 'USA_Opinion_of_China'},
+                "China's Opinion of USA": {column: 'China_Opinion_of_USA'}
+                
+            }, {xAxis: 'Years', yAxis: 'Rating'});
+            chart.bind("#chart-line1");
+            chart.render();
+
+            });
+
+        </script>
+
+        <h3>Opinions Comparison Chart Explanation</h3>
+
+        <p>The opinions in the above chart are based on survey data from the Pew Research Center. The rating is from 0 (very unfavorable) to 100 (very favorable). The center has not come out with 2020 data yet and also did not have data for China from 2017-2019, so the above chart took the average of previous years and applied that to the last three years for China’s opinion of the USA.  However, it is acknowledged that given recent Chinese criticism of the USA, opinions have most likely gone down. Regardless, when looking at the great power competition through the lens of Thucydides's Trap, the most important opinion is the current #1 power’s opinion (in this case the USA) because it is its fear that sparks conflict in an attempt to stop the rising power (in this case China). </p>
     
-        <!-- text bullet list here -->
-        <ul>
-		<li>The recent trade war</li>
-        <p> </p>
-		<li>The novel coronavirus</li>
-        <p> </p>
-		<li>The accusative rhetoric from both sides</li>
-        <p> </p>
-		<li>TBD ...</li>
-	   </ul>
+        <h3>Possible Reasons for Favorable Opinion Fallout</h3>
+        <p>A few possible reasons for at least the decline in the USA's opinion of China are as follows:</p>
 
+		<ul>
+        <li>The Hong Kong Takeover</li>
+        <li>Heated Taiwan rhetoric</li>
+        <li>Intense international competition</li>
+	    </ul>
+        
+        <!-- linking data sources for the opinions chart -->
+        <h3>Text and Chart Sources:</h3>
 
-        <h3>Text Sources:</h3>
-         <li><a href="https://en.wikipedia.org/wiki/Thucydides_Trap">TBD</a> 
+    <ul>
+        <li><a href="https://www.pewresearch.org/global/database/indicator/24/country/us/">Pew Research, "Global Indicators Database, U.S.</a>
         </li>
-    </body>
 
+        <li><a href="https://www.pewresearch.org/global/database/indicator/1/country/cn/">Pew Research, "Global Indicators Database, China</a> 
+        </li>
+    </ul>
+
+        <!-- linking d3 javascript code for opinions chart -->
+        <script src="javascript/multiline.js" charset="utf-8"></script>
+
+    </body>
 </html>
