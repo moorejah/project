@@ -3,12 +3,16 @@ html {
   background-color: black;
 }
 
+#page-content-wrapper {
+  min-width: 100%;
+}
+
 /* styles for the body of the site */
 body {
-  width: 70%;
+  width: 100%;
   background-color: lightgrey;
   border: 3px solid grey;
-  padding: 0 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -31,7 +35,7 @@ h2 {
 /* styles for subheadline */
 h3 {
     font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     color: black;
 }
 
@@ -42,11 +46,21 @@ p {
     color: black;
 }
 
-/* styles for paragraph */
+/* styles for paragraphs */
 ul {
     font-family: Arial, sans-serif;
     font-size: 14px;
     color: black;
+}
+
+/* styles for navbar */
+ul.a {
+  
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: black;
+    list-style-type: none;
+    padding: 10;
 }
 
 /* styles for image */

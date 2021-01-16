@@ -2,29 +2,53 @@
 <html>
     
     <head>
+
+        <!-- page header -->
         <title>Opinions</title>
 
         <!-- Link stylesheet -->
         <link rel="stylesheet" type="text/css" href="styles/styles.css">
-         
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="bootstrap/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+
         <!-- Link stylesheet for d3 data visualization -->
         <link rel="stylesheet" type="text/css" href="styles/multiline.css">
+
         <script src="https://d3js.org/d3.v3.js" charset="utf-8"></script>
     
     </head>
-    <body>
-        
-        <!-- page navigation links -->
-        <a href='index.html'>Thucydides's Trap  </a>
-        <a href='gdp.html'>GDP Comparison  </a>
-        <a href='military.html'>GDP Military Spending  </a>
-        <a href='opinions.html'>Opinion Comparison  </a>
-        <a href='counterarguments.html'>Counterarguments  </a>
-        <a href='our_team.html'>Our Team  </a>
 
-        <h1>The U.S. and China Opinion Comparison</h1>
+    <body>
+
+        <!-- /#wrapper -->
+        <div class="d-flex" id="wrapper">
+          <!-- page content wrapper -->
+          <div id="page-content-wrapper">
+            <!-- A horizontal navbar that becomes Toggle Button on small screens -->
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="gdp.html">GDP</a></li>
+                  <li><a href="military.html">Military</a></li>
+                  <li class="active"><a href="opinions.html">Opinions</a></li>
+                  <li><a href="counterarguments.html">Counterarguments</a></li>
+                  <li><a href="our_team.html">Our Team</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <!-- /#page-content-wrapper -->
+        </div>
+        <!-- /#wrapper -->
+
+        <h1>Opinion Comparison</h1>
+
         <h2>America's Opinion of China is at its Lowest Point</h2>
+
         <h4>The current #1 power's opinion of the rising power has fallen fast.</h4>
+
         <div class="chart-wrapper" id="chart-line1"></div>
         
         <!-- d3 code for opinions' chart -->
@@ -44,32 +68,36 @@
             chart.bind("#chart-line1");
             chart.render();
 
-        });
+            });
+
         </script>
 
         <h3>Opinions Comparison Chart Explanation</h3>
+
         <p>The opinions in the above chart are based on survey data from the Pew Research Center. The rating is from 0 (very unfavorable) to 100 (very favorable). The center has not come out with 2020 data yet and also did not have data for China from 2017-2019, so the above chart took the average of previous years and applied that to the last three years for China’s opinion of the USA.  However, it is acknowledged that given recent Chinese criticism of the USA, opinions have most likely gone down. Regardless, when looking at the great power competition through the lens of Thucydides's Trap, the most important opinion is the current #1 power’s opinion (in this case the USA) because it is its fear that sparks conflict in an attempt to stop the rising power (in this case China). </p>
     
         <h3>Possible Reasons for Favorable Opinion Fallout</h3>
         <p>A few possible reasons for at least the decline in the USA's opinion of China are as follows:</p>
-        <ul>
-		<li>The recent trade war</li>
-		<li>The novel coronavirus</li>
-		<li>The accusative rhetoric from both sides</li>
-		<li>The Hong Kong Takeover</li>
+
+		<ul>
+        <li>The Hong Kong Takeover</li>
         <li>Heated Taiwan rhetoric</li>
         <li>Intense international competition</li>
-	   </ul>
+	    </ul>
         
         <!-- linking data sources for the opinions chart -->
-         <p>
-        Source for America's opinion data on China can be found at the following link to the <a href="https://www.pewresearch.org/global/database/indicator/24/country/us/">Pew Research Center.</a> 
-        </p>
-        <p>
-        Source for China's opinion data son America can be found at the following link to the <a href="https://www.pewresearch.org/global/database/indicator/1/country/cn/">Pew Research Center.</a> 
-        </p>
+        <h3>Text and Chart Sources:</h3>
+
+    <ul>
+        <li><a href="https://www.pewresearch.org/global/database/indicator/24/country/us/">Pew Research, "Global Indicators Database, U.S.</a>
+        </li>
+
+        <li><a href="https://www.pewresearch.org/global/database/indicator/1/country/cn/">Pew Research, "Global Indicators Database, China</a> 
+        </li>
+    </ul>
 
         <!-- linking d3 javascript code for opinions chart -->
         <script src="javascript/multiline.js" charset="utf-8"></script>
+
     </body>
 </html>
